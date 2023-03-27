@@ -1,5 +1,5 @@
 # VIDEOHOST 4.89-4.90
-VIDEOHOST, es un host el cuál permite la instalaciónde HEN 4.89-4.90 como una alternativa a la página oficial del Team PS3Xploit.
+VIDEOHOST, es un host el cuál permite la instalación de HEN 4.89-4.90 como una alternativa a la página oficial del Team PS3Xploit.
 Podrás instalar Auto Hen de manera automatizada en versiones 4.89-4.90 con HFW previamente instalado en tu consola y además de utilidades y todo lo necesario a un solo click...
 
 Credits:
