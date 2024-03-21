@@ -11,5 +11,5 @@ Credits:
 #Joonie (HFW 4.90)
 #Joonie (HFW 4.91)
 #zecoxao (Contributions scene PS3/PS4)
-#Y agradecimientos a toda la comunidad de PS3 y canales amigos de Youtube... (Nanospeedgamer, TheWizWikii, entre otros...)
+#Y agradecimientos a toda la comunidad de PS3 y canales amigos de Youtube... 
 
