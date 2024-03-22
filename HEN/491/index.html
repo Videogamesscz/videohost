@@ -1,7 +1,7 @@
 <title>Auto HEN Installer HFW 4.91</title>
 <center>
 <h1><span style='color:blue'>Auto HEN Installer HFW 4.91</span></h1>
-<hr><span style='color:black'>Thanks to Coro, lmn7, Joonie, habib, zecoxao, DeViL303, xps3riments, aldostools, and PS3Xploit Team for their work used or hosted here.</span></h1>
+<hr><span style='color:black'>Thanks to Coro, lmn7, Joonie, habib, evilnat, luan teles, zecoxao, DeViL303, xps3riments, aldostools, and PS3Xploit Team for their work used or hosted here.</span></h1>
 <div id="result"></div>
 <div id="exploit"></div>
 <div id="trigger" style="display: none;"></div>
@@ -355,7 +355,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showMsg('<h2>Downloading setup file...</h2>');
+			showMsg('<h2>Descargando el archivo de instalación...</h2>');
 			window.location.href = 'SETUP.P3T';
 			setTimeout(listener,1500);
 		}
@@ -374,7 +374,7 @@ function listener()
 	var myListener = function ()
 	{
 		document.removeEventListener('mousemove', myListener, false);
-		showMsg('<h2>Installing files, please wait...</h2>');
+		showMsg('<h2>Instalando archivos, por favor espere...</h2>');
 		triggerX();
 	};
 	document.addEventListener('mousemove', myListener, false);
@@ -382,13 +382,13 @@ function listener()
 function triggerX()
 {
 	setTimeout(trigger,50,jump_1_addr);
-	setTimeout(showMsg,2000,"<h2><span style='color:red'>Failed to load setup file. Close the browser and try again.</span></h2>");
+	setTimeout(showMsg,2000,"<h2><span style='color:red'>No se pudo cargar el archivo de instalación. Cierra el navegador y vuelve a intentarlo.</span></h2>");
 	t_out=0;
 	total_loops=0;
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.91 before using this installer!</h2></span>");
+	showMsg("<h2><span style='color:red'>¡Debe instalar el firmware híbrido (HFW) 4.88 antes de usar este instalador!</h2></span>");
 	throw new Error('');
 }
 if(fwv=="4.91"){initROP(true)}else{HFWmsg()}
