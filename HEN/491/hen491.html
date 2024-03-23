@@ -283,12 +283,6 @@ function initROP(init)
 		+base_file.convert()
 		+filesystem.convert()
 		+mount_path.convert()
-		// Only needed for HEN directories
-		+unescape("\u0000\u0000")
-		+"/dev_blind/vsh/resource/silk/xai/widgets/informationboard".convert()
-		+"/dev_blind/vsh/resource/silk/xai/widgets".convert()
-		+"/dev_blind/vsh/resource/silk/xai".convert()
-		+"/dev_blind/vsh/resource/AAA".convert()
 		+unescape("\uFD7E");
 
 		while(xtra_data_addr===0)
@@ -352,10 +346,10 @@ function initROP(init)
 			search_max_threshold-=search_size;
 		}
 
-		var sf=checkMemory(stack_frame_addr-0x4,0x10000,stack_frame.length);
-		var x=checkMemory(xtra_data_addr-0x4,0x2000,xtra_data.length);
-		var j2=checkMemory(jump_2_addr-0x4,0x2000,jump_2.length);
-		var j1=checkMemory(jump_1_addr-0x4,0x2000,jump_1.length);
+		var sf=checkMemory(stack_frame_addr-0x4,0x8000,stack_frame.length);
+		var x=checkMemory(xtra_data_addr-0x4,0x1000,xtra_data.length);
+		var j2=checkMemory(jump_2_addr-0x4,0x1000,jump_2.length);
+		var j1=checkMemory(jump_1_addr-0x4,0x1000,jump_1.length);
 
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
