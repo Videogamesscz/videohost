@@ -325,10 +325,10 @@ function initROP(init)
 		+syscall(0x321,base_file_addr,0x0,0x8e000000,0,0,0,0,0)
 		+syscall_r3r5_p2p(0x322,0x8e000000,0x8a000000,0x11000,0x8e000008,0,0,0,0,0,0)
 		+syscall(0x32E,base_file_addr,0,0,0,0,0,0,0)
-		+syscall(0x32C,hen_renamedir_addr1,0x8a000000+0x15880FE,0,0,0,0,0,0) // /dev_hdd0/hen
-		+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x15881B3,0,0,0,0,0,0) // /dev_hdd0/hen/xml
+		+syscall(0x32C,hen_renamedir_addr1,0x8a000000+0x16BB546,0,0,0,0,0,0) // /dev_blind/hen
+		+syscall(0x32C,hen_renamedir_addr2,0x8a000000+0x16BB579,0,0,0,0,0,0) // /dev_blind/hen/xml
 		+syscall(0x32C,hen_renamedir_addr3,0x8a000000+0x16BB564,0,0,0,0,0,0) // /dev_blind/hen/remap
-		+syscall(0x32C,hen_renamedir_addr4,0x8a000000+0x16BB58C,0,0,0,0,0,0) // /dev_blind/hen/remap/xml
+		+syscall(0x32C,hen_renamedir_addr4,0x8a000000+0x16BB58C,0,0,0,0,0,0) // /dev_blind/hen/remap/xml	
 		+stack_frame_swap(0x8a000000+sf_swap_addr)
 		+stack_frame_exit();
 
