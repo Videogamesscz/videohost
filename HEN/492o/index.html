@@ -2,9 +2,9 @@
 <link rel="stylesheet" href="style.css">
 <center>
 <h1><span style='color:blue'>Auto HEN Installer HFW 4.92</span></h1>
-<h1><span style='color:black'>Gracias a Coro, lmn7, Joonie, evilnat, luan teles, habib, zecoxao, DeViL303, xps3riments, aldostools, and PS3Xploit Team for their work used or hosted here.</span></h1>
-<h1><span style='color:black'>HEN 3.4.0 y FIX Multistore incluido</span></h1>
-<h1><span style='color:red'>Instalador modificado por VIDEOGAMES SCZ y gracias al equipo de PSXPlace por brindar sus herramientas y conocimientos, sin ellos no sería esto posible</span></h1>
+<h1><span style='color:black'>Gracias a Coro, lmn7, Joonie, evilnat, esc0rtd3.wluan teles, habib, zecoxao, DeViL303, xps3riments, aldostools, and PS3Xploit Team for their work used or hosted here.</span></h1>
+<h1><span style='color:black'>HEN 3.4.0</span></h1>
+<h1><span style='color:red'>Instalador modificado por VIDEOGAMES SCZ y gracias al equipo de PSXPlace por brindar sus herramientas y conocimientos, sin ellos no sería esto posible.</span></h1>
 <div id="result"></div>
 <div id="exploit"></div>
 <div id="trigger" style="display: none;"></div>
@@ -366,7 +366,7 @@ function initROP(init)
 		if((j2===jump_2)&&(j1===jump_1)&&(x===xtra_data)&&(sf===stack_frame))
 		{
 			if(t_out!==0){clearTimeout(t_out);}
-			showMsg('<h2>Downloading setup file...</h2>');
+			showMsg('<h2>Descargando archivo de instalación...</h2>');
 			window.location.href = 'HEN.P3T';
 			setTimeout(listener,1500);
 		}
@@ -385,7 +385,7 @@ function listener()
 	var myListener = function ()
 	{
 		document.removeEventListener('mousemove', myListener, false);
-		showMsg('<h2>Installing HEN, please wait...</h2>');
+		showMsg('<h2>Instalando HEN, espere por favor...</h2>');
 		triggerX();
 	};
 	document.addEventListener('mousemove', myListener, false);
@@ -393,13 +393,13 @@ function listener()
 function triggerX()
 {
 	setTimeout(trigger,50,jump_1_addr);
-	setTimeout(showMsg,2000,"<h2><span style='color:red'>Failed to load setup file. Close the browser and try again.</span></h2>");
+	setTimeout(showMsg,2000,"<h2><span style='color:red'>Fallo al cargar el archivo HEN.SETUP. Cierra el navegador y vuelve a intentarlo.</span></h2>");
 	t_out=0;
 	total_loops=0;
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.91 before installing HEN!</h2></span>");
+	showMsg("<h2><span style='color:red'>Primero debes instalar HFW 4.92!</h2></span>");
 	throw new Error('');
 }
 if(fwv=="4.92"){initROP(true)}else{HFWmsg()}
