@@ -385,7 +385,7 @@ function listener()
 	var myListener = function ()
 	{
 		document.removeEventListener('mousemove', myListener, false);
-		showMsg('<h2>Instalando HEN, espere por favor...</h2>');
+		showMsg('<h2>Instalando HEN, por favor espere al reinicio...</h2>');
 		triggerX();
 	};
 	document.addEventListener('mousemove', myListener, false);
@@ -393,13 +393,13 @@ function listener()
 function triggerX()
 {
 	setTimeout(trigger,50,jump_1_addr);
-	setTimeout(showMsg,2000,"<h2><span style='color:red'>Fallo al cargar el archivo HEN.SETUP. Cierra el navegador y vuelve a intentarlo.</span></h2>");
+	setTimeout(showMsg,2000,"<h2><span style='color:red'>Fallo al cargar el archivo HEN.P3T. Cierra el navegador y vuelve a intentarlo.</span></h2>");
 	t_out=0;
 	total_loops=0;
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>Primero debes instalar HFW 4.92!</h2></span>");
+	showMsg("<h2><span style='color:red'>Asegurate de tener instalado el Firmware (HFW) 4.92 en tu consola antes de usar esto!</h2></span>");
 	throw new Error('');
 }
 if(fwv=="4.92"){initROP(true)}else{HFWmsg()}
