@@ -1,0 +1,2 @@
+# PS3 Update List
+Dest=85;ImageVersion=00049200;SystemSoftwareVersion=4.92;CDN=http://github.com/Videogamesscz/hfwusbinstaller/releases/download/4.92/PS3UPDAT.PUP;CDN_Timeout=30;
