@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>VIDEOGAMES SCZ - Boveda de Descargas</title>
+    
+    <style type="text/css">
+        /* Estilos base compatibles con PS3 */
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* BANNER */
+        .banner-container {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            border-bottom: 4px solid #aeea00;
+        }
+        
+        .banner-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: none;
+        }
+
+        .container {
+            width: 95%;
+            margin: 20px auto;
+        }
+
+        /* MENU DE CATEGORIAS (100% del ancho) */
+        table.categorias-menu {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 10px;
+            margin-bottom: 30px;
+        }
+
+        .icono-cat {
+            display: block;
+            background-color: #ffffff;
+            border: 2px solid #e0e0e0;
+            padding: 15px 5px;
+            color: #666666;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .icono-cat img {
+            display: block;
+            margin: 0 auto 10px auto;
+            width: 64px;
+            height: 64px;
+            border: none;
+        }
+
+        .icono-cat.activo {
+            border-color: #aeea00;
+            color: #333333;
+            background-color: #f4fce8;
+        }
+
+        /* GRID DE DESCARGAS */
+        .grid-descargas {
+            text-align: center;
+        }
+
+        .item-descarga {
+            display: inline-block;
+            width: 120px;
+            margin: 15px 20px;
+            vertical-align: top;
+            text-align: center;
+            display: none; /* Oculto hasta que el script actúa */
+        }
+
+        .item-descarga a {
+            text-decoration: none;
+            color: #333333;
+            display: block;
+            outline: none;
+        }
+
+        .item-descarga img {
+            width: 80px;
+            height: 80px;
+            border: 3px solid transparent;
+            border-radius: 15px; 
+            margin-bottom: 8px;
+        }
+
+        .item-descarga a:hover img {
+            border-color: #aeea00;
+            background-color: #f4fce8;
+        }
+
+        .item-descarga span {
+            display: block;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner-container">
+        <img src="banner.jpg" alt="VIDEOGAMES SCZ Banner">
+    </div>
+
+    <div class="container">
+        
+        <table class="categorias-menu" cellpadding="0" cellspacing="10" border="0">
+            <tr>
+                <td width="20%" align="center" valign="top">
+                    <a href="javascript:void(0);" onclick="filtrar('hen')" class="icono-cat activo" id="btn-hen">
+                        <img src="hen.png" alt="HEN">
+                        HEN
+                    </a>
+                </td>
+                <td width="20%" align="center" valign="top">
+                    <a href="javascript:void(0);" onclick="filtrar('cfw')" class="icono-cat" id="btn-cfw">
+                        <img src="cfw.png" alt="CFW">
+                        CFW
+                    </a>
+                </td>
+                <td width="20%" align="center" valign="top">
+                    <a href="javascript:void(0);" onclick="filtrar('aplicaciones')" class="icono-cat" id="btn-aplicaciones">
+                        <img src="apps.png" alt="Aplicaciones">
+                        APLICACIONES
+                    </a>
+                </td>
+                <td width="20%" align="center" valign="top">
+                    <a href="javascript:void(0);" onclick="filtrar('multimedia')" class="icono-cat" id="btn-multimedia">
+                        <img src="multimedia.png" alt="Multimedia">
+                        MULTIMEDIA
+                    </a>
+                </td>
+                <td width="20%" align="center" valign="top">
+                    <a href="javascript:void(0);" onclick="filtrar('utilidades')" class="icono-cat" id="btn-utilidades">
+                        <img src="utilidades.png" alt="Utilidades">
+                        HERRAMIENTAS
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <div class="grid-descargas" id="contenedor-tarjetas">
+            
+            <div class="item-descarga" data-categoria="hen">
+                <a href="TU_LINK_AQUI">
+                    <img src="autohen.png" alt="Auto HEN">
+                    <span>Auto HEN</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="hen">
+                <a href="TU_LINK_AQUI">
+                    <img src="fix.png" alt="FIX">
+                    <span>FIX</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="hen">
+                <a href="TU_LINK_AQUI">
+                    <img src="hfw.png" alt="HFW">
+                    <span>HFW</span>
+                </a>
+            </div>
+
+            <div class="item-descarga" data-categoria="cfw">
+                <a href="TU_LINK_AQUI">
+                    <img src="bgtoolset.png" alt="BGTOOLSET">
+                    <span>BGToolset</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="cfw">
+                <a href="TU_LINK_AQUI">
+                    <img src="fix.png" alt="FIX CEX">
+                    <span>FIX CEX</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="cfw">
+                <a href="TU_LINK_AQUI">
+                    <img src="fix.png" alt="FIX PEX">
+                    <span>FIX PEX-D-PEX-DEX</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="cfw">
+                <a href="TU_LINK_AQUI">
+                    <img src="extended.png" alt="EXTENDED">
+                    <span>Extended Download Plugin</span>
+                </a>
+            </div>
+
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="multiman.png" alt="MultiMAN">
+                    <span>MultiMAN</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="irisman.png" alt="irisMAN">
+                    <span>irisMAN</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="magagunz.png" alt="ManaGunZ">
+                    <span>ManaGunZ</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="apollo.png" alt="Apollo Save">
+                    <span>Apollo Save</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="pkgi.png" alt="PKGi PS3">
+                    <span>PKGi PS3</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="retroarch.png" alt="RetroArch">
+                    <span>RetroArch CE</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="webman.png" alt="Webman Mod">
+                    <span>Webman MOD</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="aplicaciones">
+                <a href="TU_LINK_AQUI">
+                    <img src="videostore.png" alt="VIDEOSTORE">
+                    <span>VIDEOSTORE</span>
+                </a>
+
+            <div class="item-descarga" data-categoria="multimedia">
+                <a href="TU_LINK_AQUI">
+                    <img src="movian.png" alt="Movian">
+                    <span>Movian</span>
+                </a>
+            </div>
+			<div class="item-descarga" data-categoria="multimedia">
+                <a href="TU_LINK_AQUI">
+                    <img src="netflix.png" alt="Netflix">
+                    <span>Netflix</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="multimedia">
+                <a href="TU_LINK_AQUI">
+                    <img src="icono-media3.png" alt="YouTube">
+                    <span>Youtube</span>
+                </a>
+            </div>
+			<div class="item-descarga" data-categoria="utilidades">
+                <a href="TU_LINK_AQUI">
+                    <img src="c00.png" alt="C00">
+                    <span>C00 Demo Unlocker</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="utilidades">
+                <a href="TU_LINK_AQUI">
+                    <img src="rap.png" alt="RAP">
+                    <span>RAP PS2</span>
+                </a>
+            </div>
+            <div class="item-descarga" data-categoria="utilidades">
+                <a href="TU_LINK_AQUI">
+                    <img src="licencias.png" alt="LICENCIAS">
+                    <span>Licencias PSN</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function filtrar(categoria) {
+            var botones = ['hen', 'cfw', 'aplicaciones', 'multimedia', 'utilidades'];
+            
+            for (var i = 0; i < botones.length; i++) {
+                document.getElementById('btn-' + botones[i]).className = 'icono-cat';
+            }
+            document.getElementById('btn-' + categoria).className = 'icono-cat activo';
+
+            var contenedor = document.getElementById('contenedor-tarjetas');
+            var tarjetas = contenedor.getElementsByTagName('div');
+
+            for (var j = 0; j < tarjetas.length; j++) {
+                var tarjeta = tarjetas[j];
+                if (tarjeta.className.indexOf('item-descarga') !== -1) {
+                    var catTarjeta = tarjeta.getAttribute('data-categoria');
+                    if (categoria === catTarjeta) {
+                        tarjeta.style.display = 'inline-block';
+                    } else {
+                        tarjeta.style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        window.onload = function() {
+            filtrar('hen');
+        };
+    </script>
+</body>
+</html>
